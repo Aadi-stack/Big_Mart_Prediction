@@ -32,21 +32,21 @@ def result():
                    outlet_establishment_year, outlet_size, outlet_location_type, outlet_type]])
 
     
-    loaded_model = joblib.load(open(r'C:\Users\DELLS\OneDrive\Documents\Downloads\sc.sav','rb'))
+    loaded_model = joblib.load(open(r'sc.sav','rb'))
 
   
 
     X_std = loaded_model.transform(X)
 
 
-    model = joblib.load(open(r'C:\Users\DELLS\OneDrive\Documents\Downloads\rf.sav', 'rb'))
+    model = joblib.load(open(r'rf.sav', 'rb'))
 
 
     Y_pred = model.predict(X_std)
 
     my_pred= Y_pred
     
-    return render_template("build.html",my_marks=my_pred)
+    return render_template("index.html",my_marks=my_pred)
 
 
     #return jsonify({'Prediction': float(my_pred)})
